@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "80781943227",
+    "project_id": "pickdays-ebc77",
+    "storage_bucket": "pickdays-ebc77.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80781943227:android:f767a8e26cd7b01347649e",
+        "android_client_info": {
+          "package_name": "com.joyce.pickdays"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "80781943227-3nd3k4dp1nutu75onq30obohnoj0p26r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.joyce.pickdays",
+            "certificate_hash": "c96aa8f1b6c68d1c75d690633b95b4d7d1d933a3"
+          }
+        },
+        {
+          "client_id": "80781943227-dsi5suqq64l3qphut7lhok4v6geatmda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb5xL-NUOrHP5nY41E1fCXjJltAR2iFYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "80781943227-dsi5suqq64l3qphut7lhok4v6geatmda.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
