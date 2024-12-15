@@ -12,7 +12,7 @@ import com.joyce.pickdays.util.mLog
 
 class LoginViewModel: ViewModel() {
 
-    private lateinit var googleSignInClient: GoogleSignInClient
+    private var googleSignInClient: GoogleSignInClient
 
     init {
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

@@ -1,11 +1,13 @@
 package com.joyce.pickdays.login
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import com.joyce.pickdays.R
 import com.joyce.pickdays.databinding.ActivityLoginBinding
 import com.joyce.pickdays.util.mLog
 
@@ -13,10 +15,9 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
+    private lateinit var loginResultLauncher: ActivityResultLauncher<Intent>
 
     companion object {
-        private const val RC_SIGN_IN = 100
-
         fun startActivity(context: Context){
             val intent = Intent(context, LoginActivity::class.java)
             context.startActivity(intent)
@@ -31,14 +32,15 @@ class LoginActivity : AppCompatActivity() {
         binding.googleLogin.setOnClickListener {
             mLog.i("click google login")
             val signInIntent = viewModel.googleSignInIntent()
-            startActivityForResult(signInIntent, RC_SIGN_IN)
+            loginResultLauncher.launch(signInIntent)
         }
-    }
 
-    override fun onActivityResult(requestCoded: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCoded, resultCode, data)
-        if (requestCoded == RC_SIGN_IN){
-            viewModel.handleLoginResult(data)
+        loginResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
+            if (result.resultCode == Activity.RESULT_OK){
+                viewModel.handleLoginResult(result.data)
+            } else {
+                mLog.e("Google sign-in failed, resultCode: ${result.resultCode}")
+            }
         }
     }
 }
