@@ -40,5 +40,4 @@ class LoginViewModel: ViewModel() {
             mLog.i(e.toString())
         }
     }
-
 }

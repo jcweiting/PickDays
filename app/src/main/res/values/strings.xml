@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">PickDays</string>
     <string name="check_more">查看更多</string>
-    <string name="fill_available_time">填寫時間</string>
-    <string name="check_available_time">確認時間</string>
-    <string name="start_available_time">開啟時間</string>
+    <string name="fill_available_time">開始填寫</string>
+    <string name="check_available_time">確認提交表單</string>
+    <string name="start_available_time">開啟新表單</string>
     <string name="default_web_client_id">80781943227-3nd3k4dp1nutu75onq30obohnoj0p26r.apps.googleusercontent.com</string>
 </resources>
