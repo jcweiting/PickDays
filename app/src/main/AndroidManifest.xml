@@ -14,8 +14,11 @@
         android:theme="@style/Theme.PickDays"
         tools:targetApi="31">
         <activity
+            android:name=".new_appointment_form.NewAppointmentFormActivity"
+            android:exported="false" />
+        <activity
             android:name=".menu.MenuActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
             android:exported="false" />
@@ -24,6 +27,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
