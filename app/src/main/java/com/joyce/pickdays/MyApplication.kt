@@ -5,9 +5,10 @@ import android.app.Application
 class MyApplication: Application() {
 
     companion object{
-        var app: MyApplication? = null
+        lateinit var app: MyApplication
+            private set
 
-        fun getInstance(): MyApplication? {
+        fun getInstance(): MyApplication {
             return app
         }
     }

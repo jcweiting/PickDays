@@ -6,7 +6,7 @@ import com.joyce.pickdays.MyApplication
 object GlobalUtil {
 
     fun getContext(): Context {
-        return MyApplication.getInstance()?.applicationContext!!
+        return MyApplication.getInstance().applicationContext
     }
 
 }
