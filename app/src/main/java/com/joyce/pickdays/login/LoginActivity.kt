@@ -9,6 +9,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.joyce.pickdays.databinding.ActivityLoginBinding
+import com.joyce.pickdays.menu.MenuActivity
 import com.joyce.pickdays.util.mLog
 
 class LoginActivity : AppCompatActivity() {
@@ -29,8 +30,12 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        buttonCollection()
+        liveDataCollection()
+    }
+
+    private fun buttonCollection() {
         binding.googleLogin.setOnClickListener {
-            mLog.i("click google login")
             val signInIntent = viewModel.googleSignInIntent()
             loginResultLauncher.launch(signInIntent)
         }
@@ -41,6 +46,13 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 mLog.e("Google sign-in failed, resultCode: ${result.resultCode}")
             }
+        }
+    }
+
+    private fun liveDataCollection() {
+        viewModel.loginSuccessTokenLiveData.observe(this){ idToken ->
+            mLog.i("idToken = $idToken")
+            MenuActivity.startActivity(this)
         }
     }
 }
