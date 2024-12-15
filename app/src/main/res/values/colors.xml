@@ -6,4 +6,12 @@
     <color name="grey_e1e1e1">#E1E1E1</color>
     <color name="red_ff9696">#FF9696</color>
     <color name="brown_ccc1bb">#CCC1BB</color>
+    <color name="brown_726155">#726155</color>
+
+    <color name="grey_404040">#404040</color>
+    <color name="grey_282828">#282828</color>
+    <color name="grey_3c3c3c">#434343</color>
+
+    <color name="yellow_fffc427">#FFDC80</color>
+
 </resources>
