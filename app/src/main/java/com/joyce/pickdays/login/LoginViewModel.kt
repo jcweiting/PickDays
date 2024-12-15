@@ -1,6 +1,7 @@
 package com.joyce.pickdays.login
 
 import android.content.Intent
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -13,6 +14,7 @@ import com.joyce.pickdays.util.mLog
 class LoginViewModel: ViewModel() {
 
     private var googleSignInClient: GoogleSignInClient
+    var loginSuccessTokenLiveData = MutableLiveData<String>()
 
     init {
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -32,7 +34,7 @@ class LoginViewModel: ViewModel() {
         try {
             val account = task.getResult(ApiException::class.java)
             account?.idToken?.let { idToken ->
-                mLog.i("idToken = $idToken")
+                loginSuccessTokenLiveData.value = idToken
             }
         } catch (e: Exception){
             mLog.i(e.toString())
