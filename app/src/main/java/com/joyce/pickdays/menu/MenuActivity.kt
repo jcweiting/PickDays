@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.joyce.pickdays.R
 import com.joyce.pickdays.databinding.ActivityMenuBinding
+import com.joyce.pickdays.new_appointment_form.NewAppointmentFormActivity
 
 class MenuActivity : AppCompatActivity() {
 
@@ -36,7 +37,7 @@ class MenuActivity : AppCompatActivity() {
         }
 
         binding.tvStartAvailableTime.setOnClickListener {
-
+            NewAppointmentFormActivity.startActivity(this)
         }
     }
 }
