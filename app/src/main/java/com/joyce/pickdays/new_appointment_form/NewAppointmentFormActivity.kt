@@ -35,8 +35,8 @@ class NewAppointmentFormActivity : AppCompatActivity() {
     }
 
     private fun liveDataCollection() {
-        viewModel.isEmptyDataLiveData.observe(this){
-            showAlertDialog()
+        viewModel.isShowAlertDataLiveData.observe(this){ content ->
+            showAlertDialog(content)
         }
 
         viewModel.setStartDateLiveData.observe(this){
@@ -80,9 +80,9 @@ class NewAppointmentFormActivity : AppCompatActivity() {
         dataPicker.show((this as AppCompatActivity).supportFragmentManager, "date_picker")
     }
 
-    private fun showAlertDialog(){
+    private fun showAlertDialog(content: String){
         val dialog = AlertDialog.Builder(this)
-            .setMessage(getString(R.string.please_fill_all_info))
+            .setMessage(content)
             .setPositiveButton(getString(R.string.confirm)) { dialog, _ ->
                 dialog.dismiss()
             }

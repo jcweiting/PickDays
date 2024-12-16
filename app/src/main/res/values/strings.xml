@@ -12,4 +12,5 @@
     <string name="confirm_to_send">確定送出</string>
     <string name="please_fill_all_info">請填寫所有資訊</string>
     <string name="confirm">確定</string>
+    <string name="is_over_two_years">時間區間超過2年</string>
 </resources>
