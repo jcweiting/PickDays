@@ -25,6 +25,9 @@ class NewAppointmentFormViewModel: ViewModel() {
 
         } else if (!isWithTwoYears()){
             isShowAlertDataLiveData.value = getContext().getString(R.string.is_over_two_years)
+
+        } else if (endDate < startDate){
+            isShowAlertDataLiveData.value = getContext().getString(R.string.start_date_error)
         }
     }
 

@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.joyce.pickdays.R
 import com.joyce.pickdays.databinding.ActivityNewAppointmentFormBinding
@@ -60,6 +62,10 @@ class NewAppointmentFormActivity : AppCompatActivity() {
         binding.tvConfirmCreateNewAppointmentForm.setOnClickListener {
             viewModel.checkContent(binding.tvNewAppointmentStartDate.text.toString().trim(), binding.tvNewAppointmentEndDate.text.toString().trim(), binding.tvNewAppointmentInvitation.text.toString().trim())
         }
+
+        binding.actionBarNewAppointmentForm.ivBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initView() {
@@ -68,9 +74,16 @@ class NewAppointmentFormActivity : AppCompatActivity() {
 
     private fun showCalendarDialog(type: CalendarType) {
         val calendar = Calendar.getInstance()
-
+        val title = if (type == CalendarType.StartDate) getString(R.string.please_choose_start_date) else getString(R.string.please_choose_end_date)
+        
         val dataPicker = MaterialDatePicker.Builder.datePicker()
-            .setSelection(calendar.timeInMillis)
+            .setTitleText(title)
+            .setSelection(calendar.timeInMillis) //預設為今天
+            .setCalendarConstraints(
+                CalendarConstraints.Builder()
+                    .setValidator(DateValidatorPointForward.from(calendar.timeInMillis)) // 僅允許今天及以後的日期
+                    .build()
+            )
             .build()
 
         dataPicker.addOnPositiveButtonClickListener { timeStamp ->

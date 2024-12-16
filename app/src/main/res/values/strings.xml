@@ -13,4 +13,7 @@
     <string name="please_fill_all_info">請填寫所有資訊</string>
     <string name="confirm">確定</string>
     <string name="is_over_two_years">時間區間超過2年</string>
+    <string name="start_date_error">開始日期晚於結束日期</string>
+    <string name="please_choose_start_date">請選擇開始日期</string>
+    <string name="please_choose_end_date">請選擇結束日期</string>
 </resources>
